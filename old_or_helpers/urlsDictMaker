@@ -1,0 +1,14 @@
+import json
+
+with open("urls_GeneReviews.json", "r") as f:
+    urls = json.load(f)
+
+disease_links = {}
+for url in urls:
+    # extract the part after ".../gene/"
+    disease_id = url.split("/gene/")[1].strip("/")
+    disease_links[disease_id] = url
+
+# save dict to new file
+with open("disease_links.json", "w") as f:
+    json.dump(disease_links, f, indent=2)
