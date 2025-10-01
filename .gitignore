@@ -1,0 +1,25 @@
+# Virtual environment (don't upload your local Python env)
+env/
+venv/
+
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Flask instance folder (holds local db, configs, etc.)
+instance/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Secrets (if you later add them here)
+.env
+
+# Databases (if you experiment with sqlite locally)
+*.db
+
+# Local executables
+ngrok.exe
