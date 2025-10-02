@@ -1,12 +1,13 @@
 # Import the Pinecone library
 from pinecone import Pinecone
-import json, time, re
+import json, time, re, os
 
 # Define dataset to be used for the vector
 used_dataset = 'records.json'
 
 # Initialize a Pinecone client with your API key
-pc = Pinecone(api_key="pcsk_yMcSm_2J4YaTKzpspLY9ub1T9KW1FvqBLk7LybLvEWfQq921xGwnA8Ld7cQBbPxcYdQBK")
+api_key = os.getenv("PINECONE_API_KEY")
+pc = Pinecone(api_key=api_key)
 index_name = "query-embeddings"
 namespace_name = "summaries"
 

@@ -1,10 +1,11 @@
 from flask import Flask, request, jsonify, render_template
 from pinecone import Pinecone
 from helper_functions import deduplicate_hits
-import json
+import json, os
 
 # Init Pinecone
-pc = Pinecone(api_key="pcsk_yMcSm_2J4YaTKzpspLY9ub1T9KW1FvqBLk7LybLvEWfQq921xGwnA8Ld7cQBbPxcYdQBK")
+api_key = os.getenv("PINECONE_API_KEY")
+pc = Pinecone(api_key=api_key)
 index_name = "query-embeddings"
 namespace_name = "summaries"
 dense_index = pc.Index(index_name)
